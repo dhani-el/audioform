@@ -14,8 +14,7 @@
   },
   "keywords": ["form","audioform","voice","elderly","voice support"],
   "author": {
-    "name": "ukuhor omotayo daniel",
-    "email": "eloh.danielz@gmail.com"
+    "name": "ukuhor omotayo daniel"
   },
   "license":"ISC",
   "dependencies": {
