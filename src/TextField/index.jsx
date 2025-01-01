@@ -1,22 +1,21 @@
-import { useContext } from "react"; 
-import { formContext } from "../Context";
+import { useEffect } from "react"; 
+import { useAudioFormData } from "../CustomHooks";
  
 
 export default function TextField({id,required,type,disabled,onChange}){
-    const [formid,ONChange,registerTextField] = useContext(formContext);
+    const {registerTextField,handleChange} = useAudioFormData()
 
     function OnChange(stringValue){
         if(onChange){
              onChange(stringValue);
         }else{
-            ONChange(stringValue)
+            handleChange(id,stringValue)
         }
 
     }
     function registerSelf(){
         registerTextField(id,required)
     }
-
     useEffect(function(){
         registerSelf()
     },[])
@@ -30,11 +29,3 @@ export default function TextField({id,required,type,disabled,onChange}){
     </div>
 }
 
-// 356:{
-// formOne{
-// value:""
-// isRequired:true
-// }
-// 
-// }
-// 
