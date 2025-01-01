@@ -1,7 +1,7 @@
 {
   "name": "audioform",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,16 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhani-el/audioform.git"
+  },
+  "keywords": ["form","audioform","voice","elderly","voice support"],
+  "author": {
+    "name": "ukuhor omotayo daniel",
+    "email": "eloh.danielz@gmail.com"
+  },
+  "license":"ISC",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
