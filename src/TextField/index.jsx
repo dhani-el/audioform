@@ -20,12 +20,12 @@ export default function TextField({id,required,type,disabled,onChange,sound}){
         registerSelf()
     },[])
 
-    return <div>
+    return <div id={id} className="z-[1] relative" >
                 <input onChange = {(Event)=>{OnChange(Event.target.value)}}
                 type={type}
                 disabled = {disabled}
                 className={`p-1 rounded-sm border-[0.02rem]
-                border-solid border-black outline-none`} />
+                border-solid border-black outline-none `} />
     </div>
 }
 
