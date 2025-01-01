@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useAudioFormData } from "../CustomHooks";
  
 
-export default function TextField({id,required,type,disabled,onChange}){
+export default function TextField({id,required,type,disabled,onChange,sound}){
     const {registerTextField,handleChange} = useAudioFormData()
 
     function OnChange(stringValue){
@@ -14,7 +14,7 @@ export default function TextField({id,required,type,disabled,onChange}){
 
     }
     function registerSelf(){
-        registerTextField(id,required)
+        registerTextField(id,required,sound)
     }
     useEffect(function(){
         registerSelf()

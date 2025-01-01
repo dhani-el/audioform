@@ -7,6 +7,7 @@ export default function Form({children,id,url}){
     const [requestState,setRequestState] = useState({loading:false,isError:false,isSuccess:false});
     const [data,setData] = useState(null);
     const [error,setError] = useState(null);
+    const audio = new Audio()
 
     function OnChange(inputId,inputValue){
         setFormData(()=>{
@@ -35,18 +36,26 @@ export default function Form({children,id,url}){
         setData(()=>dataObj)
     }
     function EnsureRequiredStatesAreNotEmpty(){
-
         console.log("EnsureRequiredStatesAreNotEmpty was clicked");
         for (const textfield in formData) {
                 if (formData[textfield]?.value?.trim() === "") {
                     console.log("the curent text field has a value of",formData[textfield]?.value);
                     console.log(`field ${textfield} is not populated`);
+                    playAudio(formData[textfield]?.audio)
                     return false
                 }
         }
         
         return true
     }
+
+    function playAudio(audiosrc){
+        audio.src = audiosrc;
+        if (audio.HAVE_FUTURE_DATA) {
+            audio.play()
+        }
+    }
+
     function SendRequestPayload(){
         return new Promise(function (resolve,reject) {
             setTimeout(() => {
@@ -72,8 +81,8 @@ export default function Form({children,id,url}){
             })
         }
     }
-    function registerTextField(id,isRequired){
-        setFormData(init=>({...init,[id]:{value:"",isRequired}}))
+    function registerTextField(id,isRequired,sound){
+        setFormData(init=>({...init,[id]:{value:"",isRequired,audio:sound}}))
     }
 
     useEffect(function(){
